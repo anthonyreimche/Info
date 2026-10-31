@@ -1,0 +1,14 @@
+{
+  "id": "safelight.info",
+  "name": "Info",
+  "version": "1.0.0",
+  "description": "Metadata and EXIF for the selected photo.",
+  "author": "Anthony Reimche",
+  "main": "dist/index.js",
+  "license": "GPL-3.0-only",
+  "categories": ["metadata"],
+  "keywords": ["info", "metadata", "exif", "histogram", "keywords", "rating"],
+  "repository": "anthonyreimche/Info",
+  "worksWith": ["anthonyreimche/Library"],
+  "minAppVersion": "3.2.0"
+}
