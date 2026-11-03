@@ -132,7 +132,7 @@ export function MetadataPanel() {
     ["Flash", e.flash],
     ["Focus dist.", formatDistance(e.subjectDistance)],
     ["Scene", e.sceneCaptureType],
-    ["Color space", e.colorSpace],
+    ["Colour space", e.colorSpace],
     ["Date", formatDate(e.dateTimeOriginal)],
     ["Location", formatCoord(e.gpsLatitude, e.gpsLongitude)],
     ["Altitude", hasGps ? formatAltitude(e.gpsAltitude) : undefined],
