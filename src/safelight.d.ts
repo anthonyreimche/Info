@@ -65,7 +65,7 @@ export interface ExifData {
   gpsAltitude?: number;
 }
 
-/** A catalog photo, with the fields this extension reads. */
+/** A catalogue photo, with the fields this extension reads. */
 export interface CatalogPhoto {
   id: string;
   filename: string;

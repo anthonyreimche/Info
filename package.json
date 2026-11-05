@@ -1,7 +1,7 @@
 {
   "name": "safelight-info",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Info extension for Safelight: histogram, keywords and metadata for the selected photo.",
   "type": "module",
   "scripts": {

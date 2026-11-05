@@ -1,4 +1,4 @@
-// The keyword editor over a real zustand catalog store: chips for the active
+// The keyword editor over a real zustand catalogue store: chips for the active
 // photo's keywords (or the keywords every selected photo shares), adding from
 // the field or a suggestion, removing from a chip or with Backspace, keyboard
 // navigation through the suggestions, and the Library's K shortcut.
@@ -107,7 +107,7 @@ describe("KeywordEditor", () => {
     expect(keywordsOf(rig, "b")).toEqual(["dawn", "forest"]);
   });
 
-  it("suggests catalog keywords containing the text, most used first, leaving out ones the photo has", () => {
+  it("suggests catalogue keywords containing the text, most used first, leaving out ones the photo has", () => {
     mount({ photos: catalog, activePhotoId: "b" });
     type("o");
     expect(suggestions().map((s) => s.textContent)).toEqual(["coast2", "fog1"]);

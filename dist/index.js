@@ -179,7 +179,7 @@ function A() {
 		["Flash", c.flash],
 		["Focus dist.", O(c.subjectDistance)],
 		["Scene", c.sceneCaptureType],
-		["Color space", c.colorSpace],
+		["Colour space", c.colorSpace],
 		["Date", S(c.dateTimeOriginal)],
 		["Location", E(c.gpsLatitude, c.gpsLongitude)],
 		["Altitude", u ? D(c.gpsAltitude) : void 0],

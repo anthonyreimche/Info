@@ -83,7 +83,7 @@ export function KeywordEditor() {
     return [...first];
   }, [targetPhotos]);
 
-  // All unique keywords across the entire catalog, with counts.
+  // All unique keywords across the entire catalogue, with counts.
   const allKeywords = React.useMemo(() => {
     const counts = new Map<string, number>();
     for (const p of photos) {

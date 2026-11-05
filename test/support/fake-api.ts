@@ -1,7 +1,7 @@
-// A stand-in Safelight API over real React and zustand. The catalog store edits
+// A stand-in Safelight API over real React and zustand. The catalogue store edits
 // ratings and keywords the way core's does (an added keyword a photo already
 // has is skipped), and records every action called. Panel, Rating and
-// Histogram are small stand-ins with core's labels; the host's catalog and
+// Histogram are small stand-ins with core's labels; the host's catalogue and
 // broadcast calls are recorded, and `broadcast` delivers a message to every
 // listener as core's same-window fan-out does.
 
@@ -43,7 +43,7 @@ export type CatalogCall =
 export interface Rig {
   api: SafelightAPI;
   catalog: StoreApi<CatalogStoreState>;
-  /** Every catalog store action called, in order. */
+  /** Every catalogue store action called, in order. */
   calls: CatalogCall[];
   /** Every id passed to `catalog.settleSelectedPhoto`, in order. */
   settled: (string | null)[];

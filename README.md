@@ -6,7 +6,7 @@ right of the grid.
 - **Histogram:** the photo's tones with its saved edit applied, so it
   matches what Develop shows. It updates as you edit, in any window.
 - **Keywords:** the photo's keywords as chips. Type a keyword and press
-  Enter or a comma to add it; suggestions from the rest of the catalog
+  Enter or a comma to add it; suggestions from the rest of the catalogue
   appear as you type (arrow keys to pick one). Click × on a chip, or press
   Backspace in the empty field, to remove one. With several photos
   selected, the chips are the keywords they all share, and adding or
