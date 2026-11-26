@@ -6,9 +6,16 @@
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import {
+  CHIPS_CLASS,
   CHIP_CLASS,
+  COUNT_CLASS,
+  EDITOR_CLASS,
+  FIELD_CLASS,
+  INPUT_CLASS,
   KeywordEditor,
   MULTI_LABEL_CLASS,
+  REMOVE_CLASS,
+  SUGGESTIONS_CLASS,
   SUGGESTION_ACTIVE_CLASS,
   SUGGESTION_CLASS,
 } from "../src/KeywordEditor";
@@ -163,5 +170,12 @@ describe("KeywordEditor", () => {
     const rig = mount({ photos: catalog, activePhotoId: "a" });
     act(() => void window.dispatchEvent(new CustomEvent(rig.api.events.FOCUS_KEYWORD_INPUT)));
     expect(document.activeElement).toBe(field());
+  });
+});
+
+describe("keyword editor class names", () => {
+  it("stay out of the Keywords extension's safelight-keywords namespace", () => {
+    const classes = [EDITOR_CLASS, MULTI_LABEL_CLASS, CHIPS_CLASS, CHIP_CLASS, REMOVE_CLASS, FIELD_CLASS, INPUT_CLASS, SUGGESTIONS_CLASS, SUGGESTION_CLASS, SUGGESTION_ACTIVE_CLASS, COUNT_CLASS];
+    for (const name of classes) expect(name.startsWith("safelight-keyword")).toBe(false);
   });
 });

@@ -5,7 +5,7 @@ function n(n) {
 }
 //#endregion
 //#region src/KeywordEditor.tsx
-var r = "safelight-keywords", i = "safelight-keywords-multi", a = "safelight-keywords-chips", o = "safelight-keyword", s = "safelight-keyword-remove", c = "safelight-keywords-field", l = "safelight-keywords-input", u = "safelight-keywords-suggestion", d = "safelight-keywords-suggestion-active";
+var r = "safelight-info-keywords", i = "safelight-info-keywords-multi", a = "safelight-info-keywords-chips", o = "safelight-info-keyword", s = "safelight-info-keyword-remove", c = "safelight-info-keywords-field", l = "safelight-info-keywords-input", u = "safelight-info-keywords-suggestion", d = "safelight-info-keywords-suggestion-active";
 function f(e) {
 	return `
 :where(.${r} > :not(:last-child)) { margin-block-end: 0.25rem; }
@@ -18,11 +18,11 @@ function f(e) {
 :where(.${l}) { width: 100%; border-radius: 0.25rem; background-color: ${e.surface2}; padding: 0.25rem 0.5rem; font-size: 11px; color: ${e.textPrimary}; outline-style: none; }
 :where(.${l})::placeholder { color: ${e.textMuted}; }
 :where(.${l}:focus) { box-shadow: 0 0 0 1px ${e.accent}; }
-:where(.safelight-keywords-suggestions) { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; margin-top: 0.125rem; border-radius: 0.25rem; border: 1px solid ${e.border}; background-color: ${e.surface1}; padding: 0.125rem 0; box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a; }
+:where(.safelight-info-keywords-suggestions) { position: absolute; left: 0; right: 0; top: 100%; z-index: 50; margin-top: 0.125rem; border-radius: 0.25rem; border: 1px solid ${e.border}; background-color: ${e.surface1}; padding: 0.125rem 0; box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a; }
 :where(.${u}) { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 0.25rem 0.5rem; font-size: 11px; color: ${e.textSecondary}; }
 @media (hover: hover) { :where(.${u}:not(.${d}):hover) { background-color: ${e.surface2}; } }
 :where(.${d}) { background-color: color-mix(in oklab, ${e.accent} 20%, transparent); color: ${e.textPrimary}; }
-:where(.safelight-keywords-count) { color: ${e.textMuted}; }
+:where(.safelight-info-keywords-count) { color: ${e.textMuted}; }
 html.sl-larger-text .${i}, html.sl-larger-text .${o} { font-size: 12px !important; }
 html.sl-larger-text .${l}, html.sl-larger-text .${u} { font-size: 13px !important; line-height: 1.45 !important; }
 `;
@@ -94,14 +94,14 @@ function p() {
 		placeholder: "Add keyword…",
 		"aria-label": "Add keyword",
 		className: l
-	}), y && k.length > 0 && /* @__PURE__ */ e.createElement("div", { className: "safelight-keywords-suggestions" }, k.map(([t, n], r) => /* @__PURE__ */ e.createElement("button", {
+	}), y && k.length > 0 && /* @__PURE__ */ e.createElement("div", { className: "safelight-info-keywords-suggestions" }, k.map(([t, n], r) => /* @__PURE__ */ e.createElement("button", {
 		key: t,
 		onMouseDown: (e) => {
 			e.preventDefault(), A(t);
 		},
 		onMouseEnter: () => S(r),
-		className: r === x ? "safelight-keywords-suggestion safelight-keywords-suggestion-active" : "safelight-keywords-suggestion"
-	}, /* @__PURE__ */ e.createElement("span", null, t), /* @__PURE__ */ e.createElement("span", { className: "safelight-keywords-count" }, n))))));
+		className: r === x ? "safelight-info-keywords-suggestion safelight-info-keywords-suggestion-active" : "safelight-info-keywords-suggestion"
+	}, /* @__PURE__ */ e.createElement("span", null, t), /* @__PURE__ */ e.createElement("span", { className: "safelight-info-keywords-count" }, n))))));
 }
 //#endregion
 //#region src/MetadataPanel.tsx

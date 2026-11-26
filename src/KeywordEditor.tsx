@@ -7,17 +7,17 @@ import type { KeyboardEvent } from "react";
 import { React, api } from "./rt";
 import type { UiTokens } from "./safelight";
 
-export const EDITOR_CLASS = "safelight-keywords";
-export const MULTI_LABEL_CLASS = "safelight-keywords-multi";
-export const CHIPS_CLASS = "safelight-keywords-chips";
-export const CHIP_CLASS = "safelight-keyword";
-export const REMOVE_CLASS = "safelight-keyword-remove";
-export const FIELD_CLASS = "safelight-keywords-field";
-export const INPUT_CLASS = "safelight-keywords-input";
-export const SUGGESTIONS_CLASS = "safelight-keywords-suggestions";
-export const SUGGESTION_CLASS = "safelight-keywords-suggestion";
-export const SUGGESTION_ACTIVE_CLASS = "safelight-keywords-suggestion-active";
-export const COUNT_CLASS = "safelight-keywords-count";
+export const EDITOR_CLASS = "safelight-info-keywords";
+export const MULTI_LABEL_CLASS = "safelight-info-keywords-multi";
+export const CHIPS_CLASS = "safelight-info-keywords-chips";
+export const CHIP_CLASS = "safelight-info-keyword";
+export const REMOVE_CLASS = "safelight-info-keyword-remove";
+export const FIELD_CLASS = "safelight-info-keywords-field";
+export const INPUT_CLASS = "safelight-info-keywords-input";
+export const SUGGESTIONS_CLASS = "safelight-info-keywords-suggestions";
+export const SUGGESTION_CLASS = "safelight-info-keywords-suggestion";
+export const SUGGESTION_ACTIVE_CLASS = "safelight-info-keywords-suggestion-active";
+export const COUNT_CLASS = "safelight-info-keywords-count";
 
 export function keywordEditorCss(t: UiTokens): string {
   return `
