@@ -17,6 +17,7 @@ import type {
   PanelProps,
   RatingProps,
   SafelightAPI,
+  SlotContribution,
   StoreApi,
   StylesheetContribution,
   UiTokens,
@@ -53,6 +54,11 @@ export interface Rig {
   histograms: (HistogramData | null)[];
   panels: PanelContribution[];
   stylesheets: StylesheetContribution[];
+  slots: SlotContribution[];
+  /** How many api.ui.onEscape takers hold the key now. */
+  escapeTakers(): number;
+  /** Press Escape: the newest taker gets it, as core's escape stack does. */
+  pressEscape(): void;
   broadcast(message: BroadcastMessage): void;
   /** How many onBroadcast listeners are subscribed now. */
   listenerCount(): number;
@@ -127,6 +133,8 @@ export function fakeApi({
   const histograms: (HistogramData | null)[] = [];
   const panels: PanelContribution[] = [];
   const stylesheets: StylesheetContribution[] = [];
+  const slots: SlotContribution[] = [];
+  const escape: (() => void)[] = [];
   const listeners = new Set<(message: BroadcastMessage) => void>();
 
   const catalog: StoreApi<CatalogStoreState> = create<CatalogStoreState>()((set) => {
@@ -181,7 +189,17 @@ export function fakeApi({
     react: React,
     registerPanel: (c) => void panels.push(c),
     registerStylesheet: (c) => void stylesheets.push(c),
-    ui: { tokens: TOKENS },
+    registerSlot: (c) => void slots.push(c),
+    ui: {
+      tokens: TOKENS,
+      onEscape: (handler) => {
+        escape.push(handler);
+        return () => {
+          const at = escape.indexOf(handler);
+          if (at >= 0) escape.splice(at, 1);
+        };
+      },
+    },
     components: { Panel, Histogram, Rating },
     stores: { useCatalogStore: catalog },
     catalog: {
@@ -209,6 +227,9 @@ export function fakeApi({
     histograms,
     panels,
     stylesheets,
+    slots,
+    escapeTakers: () => escape.length,
+    pressEscape: () => escape[escape.length - 1]?.(),
     broadcast: (message) => {
       for (const l of [...listeners]) l(message);
     },

@@ -243,14 +243,58 @@ function P() {
 	]), /* @__PURE__ */ e.createElement(n, { data: l });
 }
 //#endregion
+//#region src/StatusKeywords.tsx
+var F = "safelight-info-status-keywords", I = "safelight-info-status-keywords-trigger", L = "safelight-info-status-keywords-open";
+function R(e) {
+	return `
+:where(.${F}) { position: relative; display: flex; align-items: center; }
+:where(.${I}) { margin: -0.375rem -0.25rem; border-radius: 0.25rem; padding: 0.375rem 0.25rem; font-size: 10px; line-height: 1; color: ${e.textMuted}; }
+@media (hover: hover) { :where(.${I}:hover) { color: ${e.textPrimary}; } }
+:where(.${L}) { color: ${e.textPrimary}; }
+:where(.safelight-info-status-keywords-popover) { position: absolute; bottom: 100%; left: 0; z-index: 50; margin-bottom: 0.375rem; width: 240px; border-radius: 0.375rem; border: 1px solid ${e.border}; background-color: ${e.surface2}; padding: 0.5rem; box-shadow: 0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a; }
+html.sl-larger-text .${I} { font-size: 12px !important; }
+`;
+}
+function z() {
+	let n = t.stores.useCatalogStore((e) => e.activePhotoId !== null), [r, i] = e.useState(!1), a = e.useRef(null), o = e.useRef(null);
+	return e.useEffect(() => {
+		if (!r) return;
+		a.current?.querySelector(`.${l}`)?.focus();
+		let e = (e) => {
+			a.current?.contains(e.target) || i(!1);
+		};
+		window.addEventListener("pointerdown", e, !0);
+		let n = t.ui.onEscape?.(() => {
+			i(!1), o.current?.focus();
+		});
+		return () => {
+			window.removeEventListener("pointerdown", e, !0), n?.();
+		};
+	}, [r]), n ? /* @__PURE__ */ e.createElement("div", {
+		ref: a,
+		className: F
+	}, /* @__PURE__ */ e.createElement("button", {
+		ref: o,
+		onClick: () => i((e) => !e),
+		title: "Add or remove this photo's keywords",
+		"aria-haspopup": "dialog",
+		"aria-expanded": r,
+		className: r ? `${I} ${L}` : I
+	}, "Keywords"), r && /* @__PURE__ */ e.createElement("div", {
+		role: "dialog",
+		"aria-label": "Keywords",
+		className: "safelight-info-status-keywords-popover"
+	}, /* @__PURE__ */ e.createElement(p, null))) : null;
+}
+//#endregion
 //#region src/index.tsx
-var F = "core.info", I = "safelight.info.styles";
-function L(e) {
+var B = "core.info", V = "safelight.info.styles";
+function H(e) {
 	n(e), e.registerStylesheet({
-		id: I,
-		css: M(e.ui.tokens)
+		id: V,
+		css: M(e.ui.tokens) + R(e.ui.tokens)
 	}), e.registerPanel({
-		id: F,
+		id: B,
 		title: "Info",
 		component: N,
 		defaultDock: {
@@ -259,9 +303,13 @@ function L(e) {
 			order: 0,
 			width: 280
 		}
+	}), e.registerSlot({
+		id: "safelight.info.status-keywords",
+		slot: "develop-photo-metadata",
+		component: z
 	});
 }
 //#endregion
-export { F as PANEL_ID, I as STYLESHEET_ID, L as activate };
+export { B as PANEL_ID, V as STYLESHEET_ID, H as activate };
 
 //# sourceMappingURL=index.js.map

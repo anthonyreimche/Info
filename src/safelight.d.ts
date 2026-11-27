@@ -190,13 +190,29 @@ export interface UiTokens {
   readonly accent: string;
 }
 
+/** A component drawn in a named core UI slot. "develop-photo-metadata" is in
+ *  the Develop status bar after the open photo's flag, rating, colour label and
+ *  keyword count, from Safelight 3.2.8; before it the slot isn't drawn. */
+export interface SlotContribution {
+  id: string;
+  slot: "develop-photo-metadata";
+  component: ComponentType;
+  order?: number;
+}
+
 export interface SafelightAPI {
   version: 1;
   extensionId: string;
   react: typeof import("react");
   registerPanel(c: PanelContribution): void;
   registerStylesheet(c: StylesheetContribution): void;
-  ui: { tokens: UiTokens };
+  registerSlot(c: SlotContribution): void;
+  ui: {
+    tokens: UiTokens;
+    /** Take the Escape key while a popover is open; returns the function that
+     *  gives it back. Safelight 3.2.4 and later. */
+    onEscape?(handler: () => void): () => void;
+  };
   components: {
     /** A titled, collapsible section; inside a dock panel of the same title it
      *  drops its header. */

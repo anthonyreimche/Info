@@ -15,6 +15,11 @@ right of the grid.
 - **Metadata:** the rating, then the camera, lens, exposure, date,
   location and file details the photo carries. Empty fields are left out.
 
+In Develop, a **Keywords** button in the bottom bar, after the photo's flag,
+stars and colour label, opens the same keyword editor above the bar, so you
+can tag the photo you're editing without going back to the Library. It needs
+Safelight 3.2.8 or later; on an earlier version the panel works as before.
+
 Until Safelight 3.2.0 this panel was built in. It keeps the built-in panel's
 id (`core.info`), so layouts saved before then keep it where it was.
 
